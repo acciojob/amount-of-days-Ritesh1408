@@ -1,20 +1,12 @@
-//your JS code here. If required.
-const readline = require('readline');
+function daysOfAYear(year) {
+  if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+    return 366; // Leap year
+  }
+  return 365; // Non-leap year
+}
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-rl.question("Enter a number: ", (num) => {
-  num = Number(num); 
-	function daysOfAYear(num) {
-		if(num % 4 === 0 && num % 100 !== 0 || num % 400 === 0){
-			return 366;
-		}else{
-			return 365
-		}
-	}
-  // console.log("You entered:", num);
-  rl.close();
-});
+// Test cases
+console.log(daysOfAYear(2022)); // Output: 365
+console.log(daysOfAYear(2024)); // Output: 366
+console.log(daysOfAYear(1900)); // Output: 365
+console.log(daysOfAYear(2000)); // Output: 366
